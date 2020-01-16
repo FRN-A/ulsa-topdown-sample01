@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class Character2D : MonoBehaviour
 {
+    [SerializeField]
+    float moveSpeed = 5f;
+
     void Update()
     {
-        transform.Translate(Vector2.right * 2f * Time.deltaTime);
+        transform.Translate(Axis * moveSpeed * Time.deltaTime);
+    }
+
+    Vector2 Axis
+    {
+        get => new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
     }
 }
